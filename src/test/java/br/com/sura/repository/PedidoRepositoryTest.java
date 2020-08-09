@@ -3,6 +3,7 @@ package br.com.sura.repository;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.transaction.Transactional;
@@ -48,6 +49,7 @@ public class PedidoRepositoryTest {
 		Produto produto = new Produto();
 		produto.setProduto("Borracha");
 		produto.setCategoria(categoria);
+		produto.setPreco(2.00d);
 		produtoRepository.save(produto);
 		produto = produtoRepository.findByProduto("Borracha");
 		assertEquals("Borracha", produto.getProduto());
@@ -62,7 +64,7 @@ public class PedidoRepositoryTest {
 		pedido.setCliente(cliente);
 		
 		PedidoItens item = new PedidoItens();
-		item.setQuantidade(1);
+		item.setQuantidade(100);
 		
 		PedidoItensPK pk = new PedidoItensPK();
 		pk.setProduto(produto);
@@ -77,6 +79,36 @@ public class PedidoRepositoryTest {
 		
 		pedido = repository.findById(1l).get();
 		assertEquals("Borracha", pedido.getItens().stream().findFirst().get().getId().getProduto().getProduto());
+		
+		produto = new Produto();
+		produto.setProduto("Lapiseira");
+		produto.setCategoria(categoria);
+		produto.setPreco(9.00d);
+		produtoRepository.save(produto);
+		produto = produtoRepository.findByProduto("Lapiseira");
+		assertEquals("Lapiseira", produto.getProduto());
+		
+		item = new PedidoItens();
+		item.setQuantidade(50);
+		
+		pk = new PedidoItensPK();
+		pk.setProduto(produto);
+		pk.setPedido(pedido);
+		
+		item.setId(pk);
+		
+		itens.add(item);
+		
+		pedido.setItens(itens);
+		
+		repository.save(pedido);
+		assertEquals(2, pedido.getItens().size());
+		
+		Pedido retorno = repository.findById(1l).get();
+		repository.delete(retorno);
+		
+		Optional<Pedido> retornoDeletado = repository.findById(1l);
+		assertEquals(false, retornoDeletado.isPresent());
 
 	}
 	
