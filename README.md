@@ -120,13 +120,13 @@ Após subir a aplicação você pode acessar o Swagger e o H2 nos seguintes ende
 
 http://localhost:8080/swagger-ui.html
 
-![image-20200809173237562](C:\Users\Carlos\AppData\Roaming\Typora\typora-user-images\image-20200809173237562.png)
+![image-20200809173237562](image-20200809173237562.png)
 
 
 
 http://localhost:8080/h2-console
 
-![image-20200809173144059](C:\Users\Carlos\AppData\Roaming\Typora\typora-user-images\image-20200809173144059.png)
+![image-20200809173144059](image-20200809173144059.png)
 
 ## Como se logar utilizando o token
 
@@ -138,19 +138,19 @@ No Swagger, na aba Segurança, no serviço signin vc pode entrar como administra
 
 
 
-![image-20200809173948866](C:\Users\Carlos\AppData\Roaming\Typora\typora-user-images\image-20200809173948866.png)
+![image-20200809173948866](image-20200809173948866.png)
 
 
 
 No response será retornado o Token:
 
-![image-20200809174411246](C:\Users\Carlos\AppData\Roaming\Typora\typora-user-images\image-20200809174411246.png)
+![image-20200809174411246](image-20200809174411246.png)
 
 Você pode usar o Token para obter acesso as funcionalidades utilizando os paramentos do Header ou se logando no próprio Swagger:
 
-![image-20200809174728140](C:\Users\Carlos\AppData\Roaming\Typora\typora-user-images\image-20200809174728140.png)
+![image-20200809174728140](image-20200809174728140.png)
 
-![image-20200809174931274](C:\Users\Carlos\AppData\Roaming\Typora\typora-user-images\image-20200809174931274.png)
+![image-20200809174931274](image-20200809174931274.png)
 
 
 
